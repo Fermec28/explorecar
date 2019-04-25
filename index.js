@@ -1,4 +1,4 @@
-const cv = requrie("opencv4nodejs");
+const cv = require("opencv4nodejs");
 const path = require('path');
 const express = require('express');
 const app = express();

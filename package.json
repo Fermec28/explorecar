@@ -11,6 +11,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "npm": "^6.9.0",
+    "opencv4nodejs": "^4.14.1",
     "socket.io": "^2.2.0"
   }
 }
