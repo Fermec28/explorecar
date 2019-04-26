@@ -68,11 +68,3 @@ class Car:
         #GPIO.output(wheel1_1, 0)
         #GPIO.output(wheel2_0, 0)
         #GPIO.output(wheel2_1, 0)
-
-
-
-Car.foward()
-Car.rigth()
-Car.left()
-Car.reverse()
-Car.stop()
