@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hey</title>
+  <title>Hey</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
 <script src= "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 </head>
 
@@ -9,7 +13,7 @@
   <h1>vamos a ver como va la cosa</h1>
   <img id="image">
   <script >
-    const socket = io.connect('http://localhost:3000');
+    const socket = io.connect('http://192.168.1.9:3000');
     socket.on('image', (image)=>{
     const imageElm = document.getElementById('image');
     imageElm.src = `data:image/jpeg;base64,${image}`;
