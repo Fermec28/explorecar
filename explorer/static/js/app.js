@@ -10,7 +10,7 @@ console.log('Hola Mundo')
   Seria genial usar JWT para que las solicitudes sean aceptadas
   solo por este servidor
 */
-const URI = 'http:192.168.1.9:3001'
+const URI = 'http://localhost:5000'
 
 ajaxCall = function(action){
     $.ajax({
@@ -26,6 +26,7 @@ ajaxCall = function(action){
             console.log(msg)
         }
     });
+}
 
 $(document).ready(function(){
     $(document).keydown(function(e) {
