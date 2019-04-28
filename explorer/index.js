@@ -7,8 +7,10 @@ const io = require('socket.io')(server);
 const wCap = new cv.VideoCapture(0);
 const FPS=30;
 
+app.use(express.static(path.join(__dirname, 'static')));
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile('index.html');
 })
 
 setInterval(()=> {
