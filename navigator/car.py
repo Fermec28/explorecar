@@ -4,9 +4,10 @@ from time import sleep
 
 wheel1_0 = 29
 wheel1_1 = 31
-wheel2_0 = 33
-wheel2_1 = 35
-GPIO.setmode(GPIO.BCM)
+wheel2_0 = 32
+wheel2_1 = 33
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 GPIO.setup(wheel1_0, GPIO.OUT) #0 wheel 1
 GPIO.setup(wheel1_1, GPIO.OUT) #1 wheel 1
 GPIO.setup(wheel2_0, GPIO.OUT) #0 wheel 2
