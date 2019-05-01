@@ -1,25 +1,25 @@
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 # lets us have a delay
 from time import sleep
 
-wheel1_0 = 24
-wheel1_1 = 24
-wheel2_0 = 24
-wheel2_1 = 24
-#GPIO.setmode(GPIO.BCM)
-#GPIO.setup(24, wheel1_0) #0 wheel 1
-#GPIO.setup(24, wheel1_1) #1 wheel 1
-#GPIO.setup(24, wheel2_0) #0 wheel 2
-#GPIO.setup(24, wheel2_1) #1 wheel 2
+wheel1_0 = 29
+wheel1_1 = 31
+wheel2_0 = 33
+wheel2_1 = 35
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(wheel1_0, GPIO.OUT) #0 wheel 1
+GPIO.setup(wheel1_1, GPIO.OUT) #1 wheel 1
+GPIO.setup(wheel2_0, GPIO.OUT) #0 wheel 2
+GPIO.setup(wheel2_1, GPIO.OUT) #1 wheel 2
 #Model of simple car
 class Car:
     @classmethod
     def foward(cls):
         #set the ports correctly
-        #GPIO.output(wheel1_0, 1)
-        #GPIO.output(wheel1_1, 0)
-        #GPIO.output(wheel2_0, 1)
-        #GPIO.output(wheel2_1, 0)
+        GPIO.output(wheel1_0, 1)
+        GPIO.output(wheel1_1, 0)
+        GPIO.output(wheel2_0, 1)
+        GPIO.output(wheel2_1, 0)
 
         sleep(.30)
         print("move the car foward")
@@ -28,10 +28,10 @@ class Car:
     @classmethod
     def rigth(cls):
         #set the ports correctly
-        #GPIO.output(wheel1_0, 0)
-        #GPIO.output(wheel1_1, 1)
-        #GPIO.output(wheel2_0, 1)
-        #GPIO.output(wheel2_1, 0)
+        GPIO.output(wheel1_0, 0)
+        GPIO.output(wheel1_1, 1)
+        GPIO.output(wheel2_0, 1)
+        GPIO.output(wheel2_1, 0)
 
         sleep(.30)
         print("move the car on the rigth")
@@ -40,10 +40,10 @@ class Car:
     @classmethod
     def left(cls):
         #set the ports correctly
-        #GPIO.output(wheel1_0, 1)
-        #GPIO.output(wheel1_1, 0)
-        #GPIO.output(wheel2_0, 0)
-        #GPIO.output(wheel2_1, 1)
+        GPIO.output(wheel1_0, 1)
+        GPIO.output(wheel1_1, 0)
+        GPIO.output(wheel2_0, 0)
+        GPIO.output(wheel2_1, 1)
 
         sleep(.30)
         print("move the car on the left")
@@ -52,10 +52,10 @@ class Car:
     @classmethod
     def reverse(cls):
         #set the ports correctly
-        #GPIO.output(wheel1_0, 0)
-        #GPIO.output(wheel1_1, 1)
-        #GPIO.output(wheel2_0, 0)
-        #GPIO.output(wheel2_1, 1)
+        GPIO.output(wheel1_0, 0)
+        GPIO.output(wheel1_1, 1)
+        GPIO.output(wheel2_0, 0)
+        GPIO.output(wheel2_1, 1)
 
         sleep(.30)
         print("move the car on the reverse")
@@ -64,7 +64,7 @@ class Car:
     @classmethod
     def stop(cls):
         print("stop the car")
-        #GPIO.output(wheel1_0, 0)
-        #GPIO.output(wheel1_1, 0)
-        #GPIO.output(wheel2_0, 0)
-        #GPIO.output(wheel2_1, 0)
+        GPIO.output(wheel1_0, 0)
+        GPIO.output(wheel1_1, 0)
+        GPIO.output(wheel2_0, 0)
+        GPIO.output(wheel2_1, 0)
