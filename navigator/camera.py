@@ -5,7 +5,6 @@ from threading import Thread
 def thread1(threadname, instance):
     while instance._FINISH:
         rabbed, frame = instance.camera.read()  # grab the current frame
-        frame = cv2.resize(frame, (640, 480))  # resize the frame
         encoded, buffer = cv2.imencode('.jpg', frame)
         instance.image = base64.b64encode(buffer)
 
@@ -13,6 +12,8 @@ def thread1(threadname, instance):
 class Camera:
     def __init__(self, camera_id):
         self.camera = cv2.VideoCapture(camera_id)
+        self.camera.set(3 ,640)
+        self.camera.set(3 ,480)
         self.image = ""
         self._FINISH = True
         self.thread = Thread( target=thread1, args=("Thread",self) )
