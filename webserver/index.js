@@ -4,7 +4,7 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const axios = require('axios');
-const FPS= 25;
+const FPS= 60;
 const net = require('net')
 const stream = require("socket.io-client").connect('http://localhost:5000/');
 
@@ -22,11 +22,12 @@ io.on('connection',function(socket){
 
     setInterval(()=> {
 	stream.emit("image", function(data){
-	    io.emit('image', data);
-	});  	
+//	    console.log(data.toString())
+	    io.emit('image', data.toString());
+	});
     }, 1000 / FPS );
 
-    
+
     socket.on('foward', function(){
 	getJSONAsync('foward').then( function(result) {
 	    console.log('moving to foward');
