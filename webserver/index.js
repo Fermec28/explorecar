@@ -4,7 +4,7 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const axios = require('axios');
-const FPS= 30;
+const FPS= 15;
 const net = require('net')
 const stream = require("socket.io-client").connect('http://localhost:5000/');
 
