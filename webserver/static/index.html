@@ -9,9 +9,9 @@
 
 <body>
   <h1>vamos a ver como va la cosa</h1>
-  <img id="image">
+  <img id="image" height="500" width="1000">
   <script >
-    const socket = io.connect('http://10.3.220.134:3000');
+    const socket = io.connect('http://192.168.1.7:3000');
     socket.on('image', (image)=>{
     const imageElm = document.getElementById('image');
     imageElm.src = `data:image/jpeg;base64,${image}`;

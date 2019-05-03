@@ -2,21 +2,17 @@ import base64
 import cv2
 from threading import Thread
 
-def thread1(threadname, instance):
-    while instance._FINISH:
-        rabbed, frame = instance.camera.read()  # grab the current frame
-        encoded, buffer = cv2.imencode('.jpg', frame)
-        instance.image = base64.b64encode(buffer)
 
 
 class Camera:
     def __init__(self, camera_id):
         self.camera = cv2.VideoCapture(camera_id)
-        self.camera.set(3 ,640)
-        self.camera.set(3 ,480)
+        self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+        self.camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
         self.image = ""
         self._FINISH = True
-        self.thread = Thread( target=thread1, args=("Thread",self) )
+        self.thread = Thread( target=self.update, args=() )
+        self.thread.daemon = True
         self.thread.start()
 
     def delete_camera(self):
@@ -25,3 +21,9 @@ class Camera:
 
     def get_image(self):
         return self.image
+
+    def update(self):
+        while self._FINISH:
+            rabbed, frame = self.camera.read()  # grab the current frame
+            encoded, buffer = cv2.imencode('.jpg', frame)
+            self.image = base64.b64encode(buffer)
