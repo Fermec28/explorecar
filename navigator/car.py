@@ -22,7 +22,7 @@ class Car:
         GPIO.output(wheel2_0, 1)
         GPIO.output(wheel2_1, 0)
 
-        sleep(.30)
+        sleep(.60)
         print("move the car foward")
         cls.stop()
 
@@ -34,8 +34,8 @@ class Car:
         GPIO.output(wheel2_0, 1)
         GPIO.output(wheel2_1, 0)
 
-        sleep(.30)
-        print("move the car on the rigth")
+        sleep(.15)
+#        print("move the car on the rigth")
         cls.stop()
 
     @classmethod
@@ -46,8 +46,8 @@ class Car:
         GPIO.output(wheel2_0, 0)
         GPIO.output(wheel2_1, 1)
 
-        sleep(.30)
-        print("move the car on the left")
+        sleep(.15)
+#        print("move the car on the left")
         cls.stop()
 
     @classmethod
@@ -58,8 +58,8 @@ class Car:
         GPIO.output(wheel2_0, 0)
         GPIO.output(wheel2_1, 1)
 
-        sleep(.30)
-        print("move the car on the reverse")
+        sleep(.60)
+#        print("move the car on the reverse")
         cls.stop()
 
     @classmethod
